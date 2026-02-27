@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/users">Ir para Usuários</a>
+</nav>
+
+<h2>Welcome to {{ title }}!</h2>
+
+<router-outlet></router-outlet>
+<!-- O <router-outlet> é usado para renderizar os componentes correspondentes às rotas, como o children do react -->
+
+<app-home [nome]="'João da Silva'"></app-home>
+

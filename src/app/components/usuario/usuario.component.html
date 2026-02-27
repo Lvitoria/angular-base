@@ -1,0 +1,9 @@
+<p>usuario works!</p>
+
+@for (usuario of usuarios; track usuario.id) {
+  <div class="user-card">
+    <p><strong>{{ usuario.nome }}</strong> - {{ usuario.email }}</p>
+  </div>
+} @empty {
+  <p>Nenhum usuário encontrado.</p>
+}
