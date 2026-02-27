@@ -8,3 +8,11 @@
 } @empty {
   <p>Carregando usuários...</p>
 }
+
+@if (error) {
+  <p>Ocorreu um erro ao carregar os usuários: {{ error }}</p>
+}
+
+@if (usuarios.length > 0 ) {
+  <button (click)="enviarformulario()">Enviar Formulário</button>
+}
