@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-usuario',
@@ -6,12 +7,18 @@ import { Component } from '@angular/core';
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.css'
 })
-export class UsuarioComponent {
-  usuarios = [
-    { id: 1, nome: 'João', email: 'joao@example.com' },
-    { id: 2, nome: 'Maria', email: 'maria@example.com' },
-    { id: 3, nome: 'Pedro', email: 'pedro@example.com' },
-    { id: 4, nome: 'Ana', email: 'ana@example.com' },
-    { id: 5, nome: 'Carlos', email: 'carlos@example.com' }
-  ];
+export class UsuarioComponent implements OnInit {
+  private http = inject(HttpClient);
+  usuarios: any[] = [];
+
+  ngOnInit(): void {
+    this.http.get<any[]>('https://api.github.com/users').subscribe({
+      next: (data) => {
+        this.usuarios = data;
+      },
+      error: (err) => {
+        console.error('Erro ao buscar usuários:', err);
+      }
+    });
+  }
 }
