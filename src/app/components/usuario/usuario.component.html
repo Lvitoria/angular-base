@@ -1,7 +1,7 @@
 <p>Lista de Usuários do GitHub:</p>
 
 <!-- track é a key do react usada para otimizar a renderização de listas -->
-@for (usuario of usuarios; track usuario.id) {
+@for (usuario of usuarios(); track usuario.id) {
   <div class="user-card">
     <p><strong>{{ usuario.login }}</strong> - <a [href]="usuario.html_url" target="_blank">{{ usuario.html_url }}</a></p>
   </div>

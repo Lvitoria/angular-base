@@ -10,6 +10,7 @@ export class HomeComponent {
   @Input() nome!: string; // ! para indicar que a propriedade será inicializada posteriormente
 
   alerta() {
+    debugger; // Adiciona um ponto de interrupção para depuração
     alert(`Olá, ${this.nome}!`);
   }
 }
